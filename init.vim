@@ -7,6 +7,11 @@ endif
 set number
 set encoding=utf8
 
+
+
+
+
+
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -20,6 +25,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'kien/rainbow_parentheses.vim'
 
 call plug#end()
+
+
+
+
+
 
 syntax enable
 colorscheme dracula
