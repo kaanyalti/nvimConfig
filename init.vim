@@ -17,12 +17,12 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
 
-Plug 'dracula/vim'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'morhetz/gruvbox'
+Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
 call plug#end()
 
@@ -32,7 +32,7 @@ call plug#end()
 
 
 syntax enable
-colorscheme dracula
+colorscheme gruvbox
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
@@ -77,32 +77,6 @@ let g:fzf_action = {
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-" Rainbow Paranthesis config
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -124,3 +98,7 @@ endfunction
 
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
+
+autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
+
