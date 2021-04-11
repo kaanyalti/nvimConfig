@@ -15,7 +15,7 @@ set encoding=utf8
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-yaml', 'coc-docker']
 
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -99,6 +99,5 @@ endfunction
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
 
-autocmd BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
 
